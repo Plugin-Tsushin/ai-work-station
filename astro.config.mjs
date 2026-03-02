@@ -6,6 +6,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://ai-work-station.github.io',
+	site: 'https://plugin-tsushin.github.io',
+	base: '/ai-work-station',
 	integrations: [mdx(), sitemap()],
 });
