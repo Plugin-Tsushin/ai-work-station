@@ -1,0 +1,158 @@
+:root {
+	--accent: #2563eb;
+	--accent-light: #3b82f6;
+	--accent-dark: #1d4ed8;
+	--black: 15, 23, 42;
+	--gray: 100, 116, 139;
+	--gray-light: 241, 245, 249;
+	--gray-dark: 30, 41, 59;
+	--white: #ffffff;
+	--border: #e2e8f0;
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+	--shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+	--radius: 8px;
+	--max-width: 1100px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	margin: 0;
+	padding: 0;
+	background: #f8fafc;
+	color: rgb(var(--gray-dark));
+	font-size: 16px;
+	line-height: 1.8;
+	-webkit-font-smoothing: antialiased;
+}
+
+main {
+	width: var(--max-width);
+	max-width: calc(100% - 2rem);
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 0.5rem 0;
+	color: rgb(var(--black));
+	line-height: 1.4;
+	font-weight: 700;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+a:hover {
+	color: var(--accent-dark);
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+.prose p {
+	margin-bottom: 1.5em;
+}
+
+.prose h2 {
+	margin-top: 2.5em;
+	padding-bottom: 0.3em;
+	border-bottom: 2px solid var(--border);
+}
+
+.prose h3 {
+	margin-top: 2em;
+}
+
+.prose ul, .prose ol {
+	padding-left: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+.prose li {
+	margin-bottom: 0.5em;
+}
+
+.prose blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0.5em 1em;
+	margin: 1.5em 0;
+	background: rgb(var(--gray-light));
+	border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--radius);
+}
+
+code {
+	padding: 2px 6px;
+	background-color: rgb(var(--gray-light));
+	border-radius: 4px;
+	font-size: 0.9em;
+}
+
+pre {
+	padding: 1.5em;
+	border-radius: var(--radius);
+	overflow-x: auto;
+}
+
+pre > code {
+	all: unset;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1.5em 0;
+}
+
+th, td {
+	padding: 0.75em 1em;
+	border: 1px solid var(--border);
+	text-align: left;
+}
+
+th {
+	background: rgb(var(--gray-light));
+	font-weight: 700;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid var(--border);
+	margin: 2em 0;
+}
+
+@media (max-width: 768px) {
+	body { font-size: 15px; }
+	main { padding: 1rem; }
+	h1 { font-size: 1.6rem; }
+	h2 { font-size: 1.3rem; }
+}
+
+.sr-only {
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}

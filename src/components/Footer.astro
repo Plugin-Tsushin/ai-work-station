@@ -1,0 +1,26 @@
+---
+const today = new Date();
+---
+
+<footer>
+	<div class="footer-inner">
+		<p>&copy; {today.getFullYear()} AI Work Station. All rights reserved.</p>
+	</div>
+</footer>
+
+<style>
+	footer {
+		border-top: 1px solid var(--border);
+		padding: 2rem 1rem;
+		text-align: center;
+		color: rgb(var(--gray));
+		font-size: 0.85rem;
+	}
+	.footer-inner {
+		max-width: var(--max-width);
+		margin: 0 auto;
+	}
+	p {
+		margin: 0;
+	}
+</style>

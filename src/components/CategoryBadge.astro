@@ -1,0 +1,29 @@
+---
+import { CATEGORIES, type CategorySlug } from '../consts';
+
+interface Props {
+	category: CategorySlug;
+}
+
+const { category } = Astro.props;
+const cat = CATEGORIES[category];
+---
+
+<a href={`/category/${category}`} class="badge">{cat.name}</a>
+
+<style>
+	.badge {
+		display: inline-block;
+		padding: 0.2em 0.7em;
+		font-size: 0.75rem;
+		font-weight: 600;
+		color: var(--accent);
+		background: #eff6ff;
+		border-radius: 999px;
+		text-decoration: none;
+		transition: background 0.2s;
+	}
+	.badge:hover {
+		background: #dbeafe;
+	}
+</style>

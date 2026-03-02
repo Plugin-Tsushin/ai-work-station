@@ -1,0 +1,56 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={`About | ${SITE_TITLE}`} description="AI Work Stationについて" />
+	</head>
+	<body>
+		<Header />
+		<main class="about-page">
+			<h1>About</h1>
+			<div class="prose">
+				<h2>AI Work Station とは</h2>
+				<p>
+					AI Work Station は、<strong>AIツールとデスク環境ガジェット</strong>の情報を発信するブログです。
+				</p>
+				<p>
+					ChatGPT、Claude、Gemini などの最新AIツールのレビューから、
+					モニター、キーボード、チェアなどのデスク環境ガジェットまで、
+					<strong>「AI時代の最強作業環境」</strong>をテーマに情報をお届けします。
+				</p>
+
+				<h2>このブログの特徴</h2>
+				<ul>
+					<li><strong>実際に使ったレビュー</strong> - すべてのツール・ガジェットを実際に使用した上でレビューしています</li>
+					<li><strong>AI × デスク環境の融合</strong> - AIを最大限活用するためのデスク環境構築術を提案します</li>
+					<li><strong>正直なレビュー</strong> - メリットだけでなくデメリットも正直にお伝えします</li>
+				</ul>
+
+				<h2>カテゴリ</h2>
+				<ul>
+					<li><strong>AIツール</strong> - ChatGPT・Claude・Gemini等のレビュー・比較・使い方</li>
+					<li><strong>デスク環境</strong> - モニター・キーボード・チェア等のガジェットレビュー</li>
+					<li><strong>AI×デスク</strong> - AIを使いこなすための最強デスク環境構築術</li>
+					<li><strong>仕事術</strong> - AI活用術・在宅ワーク効率化テクニック</li>
+					<li><strong>デスクツアー</strong> - AI時代の作業環境を公開・紹介</li>
+				</ul>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.about-page {
+		max-width: 800px;
+	}
+	h1 {
+		margin-bottom: 1.5rem;
+	}
+</style>

@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import CategoryBadge from '../components/CategoryBadge.astro';
+import { SITE_TITLE } from '../consts';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage, category, tags } = Astro.props;
+---
+
+<html lang="ja">
+	<head>
+		<BaseHead title={`${title} | ${SITE_TITLE}`} description={description} image={heroImage} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				{heroImage && (
+					<div class="hero-image">
+						<Image width={1020} height={510} src={heroImage} alt={title} />
+					</div>
+				)}
+				<div class="prose">
+					<div class="article-header">
+						<div class="meta">
+							<CategoryBadge category={category} />
+							<span class="date">
+								<FormattedDate date={pubDate} />
+							</span>
+							{updatedDate && (
+								<span class="updated">
+									(Updated: <FormattedDate date={updatedDate} />)
+								</span>
+							)}
+						</div>
+						<h1>{title}</h1>
+						{tags && tags.length > 0 && (
+							<div class="tags">
+								{tags.map((tag) => (
+									<span class="tag">#{tag}</span>
+								))}
+							</div>
+						)}
+					</div>
+					<hr />
+					<slot />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		max-width: 800px;
+	}
+	.hero-image {
+		margin-bottom: 2rem;
+	}
+	.hero-image img {
+		width: 100%;
+		border-radius: var(--radius);
+		box-shadow: var(--shadow-md);
+	}
+	.article-header {
+		margin-bottom: 1rem;
+	}
+	.article-header h1 {
+		font-size: 1.8rem;
+		line-height: 1.4;
+		margin: 0.75rem 0 0.5rem;
+	}
+	.meta {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+	.date {
+		font-size: 0.85rem;
+		color: rgb(var(--gray));
+	}
+	.updated {
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+		font-style: italic;
+	}
+	.tags {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		margin-top: 0.5rem;
+	}
+	.tag {
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+	}
+	@media (max-width: 768px) {
+		.article-header h1 {
+			font-size: 1.4rem;
+		}
+	}
+</style>
